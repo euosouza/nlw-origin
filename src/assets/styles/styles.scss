@@ -1,3 +1,68 @@
-body{
-  background-color: blue;
+@mixin min($value){
+  @media screen and (min-width: $value){
+    @content;
+  }
+}
+
+@function rem($value){
+  @return $value / 16 * 1rem;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+ul{
+  list-style: none;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+:root {
+  /* colors */
+  --hue: 159;
+  /* HSL color mode */
+  --base-color: hsl(var(--hue) 36% 57%);
+  --base-color-second: hsl(var(--hue) 65% 88%);
+  --base-color-alt: hsl(var(--hue) 57% 53%);
+  --title-color: hsl(var(--hue) 41% 10%);
+  --text-color: hsl(0 0% 46%);
+  --text-color-light: hsl(0 0% 98%);
+  --body-color: hsl(0 0% 98%);
+
+}
+
+body {
+  font: 400 rem(16) "DM Sans", sans-serif;
+  color: var(--text-color);
+}
+
+h1 {
+  font: 700 rem(30) "Poppins", sans-serif;
+  color: var(--title-color);
+}
+
+.font-poppins {
+  font-family: "Poppins", sans-serif;
+}
+
+.font-dm-sans {
+  font-family: "Poppins", sans-serif;
+}
+
+.container {
+  width: 100%;
+  max-width: rem(980);
+  margin: 0 auto;
+  padding: 0 rem(24);
 }
