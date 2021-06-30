@@ -82,6 +82,58 @@ section {
   padding: 0 1rem;
 }
 
+.divider {
+  position: relative;
+  height: 0.125rem;
+  width: 100%;
+}
+
+.divider::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20%;
+  height: 100%;
+  background: -webkit-gradient(linear, right top, left top, from(hsla(var(--hue), 36%, 57%, 1)), to(hsla(var(--hue), 65%, 88%, 0.34)));
+  background: linear-gradient(270deg, hsla(var(--hue), 36%, 57%, 1) 0%, hsla(var(--hue), 65%, 88%, 0.34) 100%);
+  opacity: .4;
+  -webkit-animation: divider 2s infinite;
+          animation: divider 2s infinite;
+}
+
+.divider.right {
+  background: -webkit-gradient(linear, right top, left top, from(hsla(var(--hue), 36%, 57%, 1)), to(hsla(var(--hue), 65%, 88%, 0.34)));
+  background: linear-gradient(270deg, hsla(var(--hue), 36%, 57%, 1) 0%, hsla(var(--hue), 65%, 88%, 0.34) 100%);
+}
+
+.divider.left {
+  background: -webkit-gradient(linear, right top, left top, from(hsla(var(--hue), 65%, 88%, 0.34)), to(hsla(var(--hue), 36%, 57%, 1)));
+  background: linear-gradient(270deg, hsla(var(--hue), 65%, 88%, 0.34) 0%, hsla(var(--hue), 36%, 57%, 1) 100%);
+}
+
+@-webkit-keyframes divider {
+  0% {
+    -webkit-transform: translateX(-100%);
+            transform: translateX(-100%);
+  }
+  100% {
+    -webkit-transform: translateX(500%);
+            transform: translateX(500%);
+  }
+}
+
+@keyframes divider {
+  0% {
+    -webkit-transform: translateX(-100%);
+            transform: translateX(-100%);
+  }
+  100% {
+    -webkit-transform: translateX(500%);
+            transform: translateX(500%);
+  }
+}
+
 /**************************************
                 HEADER
 ***************************************/
@@ -126,14 +178,14 @@ section {
 #header nav.container .logo {
   font: 700 1.3125rem "Poppins", sans-serif;
   color: var(--title-color);
-  -webkit-transition: all .5s;
-  transition: all .5s;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
 }
 
 #header nav.container .logo span {
   color: var(--base-color);
-  -webkit-transition: all .5s;
-  transition: all .5s;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
 }
 
 #header nav.container .logo:hover {
@@ -441,8 +493,8 @@ main #home .text a {
   color: white;
   padding: 0 1.5rem;
   border-radius: 0.25rem;
-  -webkit-transition: .4s;
-  transition: .4s;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
 }
 
 main #home .text a:hover {

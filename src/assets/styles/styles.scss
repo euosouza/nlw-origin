@@ -89,6 +89,41 @@ section {
   padding: 0 rem(16);
 }
 
+.divider {
+  position: relative;
+  height: rem(2);
+  width: 100%; 
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20%;
+    height: 100%;
+    background: linear-gradient(270deg, hsla(var(--hue), 36%, 57%, 1) 0%, hsla(var(--hue), 65%, 88%, 0.34) 100%);
+    opacity: .4;
+    animation: divider 2s infinite;
+  }
+
+  &.right{
+    background: linear-gradient(270deg, hsla(var(--hue), 36%, 57%, 1) 0%, hsla(var(--hue), 65%, 88%, 0.34) 100%);
+  }
+  &.left{
+    background: linear-gradient(270deg, hsla(var(--hue), 65%, 88%, 0.34) 0%, hsla(var(--hue), 36%, 57%, 1) 100% );
+  }
+  
+}
+
+@keyframes divider {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(500%);
+  }
+}
+
 /**************************************
                 HEADER
 ***************************************/
@@ -121,16 +156,16 @@ section {
     .logo {
       font: 700 rem(21) "Poppins", sans-serif;
       color: var(--title-color);
-      transition: all .5s;
+      transition: all 0.5s;
 
       span {
         color: var(--base-color);
-        transition: all .5s;
+        transition: all 0.5s;
       }
 
-      &:hover{
+      &:hover {
         transform: scale(1.04);
-        span{
+        span {
           color: var(--base-color-alt);
         }
       }
@@ -258,7 +293,7 @@ section {
             }
 
             &:hover {
-              color: var(--base-color);              
+              color: var(--base-color);
 
               &::after {
                 width: 100%;
@@ -341,27 +376,26 @@ main {
         text-align: left;
         padding-top: 0;
         order: 1;
-       
       }
 
-      h1{
+      h1 {
         margin-bottom: rem(16);
       }
-      p{
+      p {
         margin-bottom: rem(32);
       }
-      a{
+      a {
         height: rem(50);
         background: var(--base-color);
         display: inline-flex;
         align-items: center;
         color: white;
-        padding:0 rem(24);
+        padding: 0 rem(24);
         border-radius: rem(4);
 
-        transition: .4s;
+        transition: 0.4s;
 
-        &:hover{
+        &:hover {
           background: var(--base-color-alt);
         }
       }
