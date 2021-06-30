@@ -86,6 +86,14 @@ h1 {
 
   display: flex;
   align-items: center;
+  border-bottom: 1px solid rgba(228, 228, 228, 1);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0);
+
+  transition: .6s;
+
+  &.shadow {
+    box-shadow: 0 0 5px rgba(0,0,0,.3);
+  }
 
   nav.container {
     display: flex;
@@ -154,7 +162,7 @@ h1 {
       background: var(--body-color);
 
       transform: translateX(100%);
-      transition: all 0.2s;
+      transition: all 0.5s;
 
       &.resize {
         transition: none;

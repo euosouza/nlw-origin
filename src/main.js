@@ -1,5 +1,6 @@
 const toggle = document.querySelector('#toggle');
 const menu = document.querySelector('#menu');
+const header = document.querySelector('#header');
 
 toggle.addEventListener('click', () => {
   toggle.classList.toggle('on');
@@ -12,7 +13,13 @@ window.addEventListener('resize', () => {
   toggle.classList.remove('on');
   menu.classList.remove('show');
 
-  setTimeout(() =>{
+  setTimeout(() => {
     menu.classList.remove('resize');
-  },10)  
+  }, 10)
+})
+
+// Adicionando sombra no header
+window.addEventListener('scroll', () => {
+  window.pageYOffset > header.offsetHeight ? 
+  header.classList.add('shadow') : header.classList.remove('shadow');
 })
