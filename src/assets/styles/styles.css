@@ -35,6 +35,7 @@ img {
 body {
   font: 400 1rem "DM Sans", sans-serif;
   color: var(--text-color);
+  overflow-x: hidden;
 }
 
 @media screen and (min-width: 568px) {
@@ -275,6 +276,7 @@ section {
 @media screen and (min-width: 768px) {
   #header nav.container .menu ul.nav-list li.nav-item a.nav-link {
     font: 400 1rem "DM Sans", sans-serif;
+    padding: 1.5rem 0;
   }
 }
 
@@ -351,7 +353,7 @@ main #home .image {
     -webkit-box-ordinal-group: 3;
         -ms-flex-order: 2;
             order: 2;
-    max-width: 28.125rem;
+    max-width: 34.375rem;
   }
 }
 
@@ -368,6 +370,12 @@ main #home .image::after {
   z-index: -1;
 }
 
+@media screen and (min-width: 768px) {
+  main #home .image::after {
+    left: 25%;
+  }
+}
+
 main #home .image img {
   position: relative;
   right: 10%;
@@ -376,6 +384,7 @@ main #home .image img {
 @media screen and (min-width: 768px) {
   main #home .image img {
     right: 0;
+    left: 10%;
     margin-left: 1.5625rem;
   }
 }
