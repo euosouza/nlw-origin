@@ -126,10 +126,23 @@ section {
 #header nav.container .logo {
   font: 700 1.3125rem "Poppins", sans-serif;
   color: var(--title-color);
+  -webkit-transition: all .5s;
+  transition: all .5s;
 }
 
 #header nav.container .logo span {
   color: var(--base-color);
+  -webkit-transition: all .5s;
+  transition: all .5s;
+}
+
+#header nav.container .logo:hover {
+  -webkit-transform: scale(1.04);
+          transform: scale(1.04);
+}
+
+#header nav.container .logo:hover span {
+  color: var(--base-color-alt);
 }
 
 #header nav.container .toggle {

@@ -121,8 +121,18 @@ section {
     .logo {
       font: 700 rem(21) "Poppins", sans-serif;
       color: var(--title-color);
+      transition: all .5s;
+
       span {
         color: var(--base-color);
+        transition: all .5s;
+      }
+
+      &:hover{
+        transform: scale(1.04);
+        span{
+          color: var(--base-color-alt);
+        }
       }
     }
 
