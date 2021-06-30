@@ -92,12 +92,12 @@ section {
 
 .container {
   width: 100%;
-  max-width: rem(980);
+  max-width: rem(1100);
   margin: 0 auto;
   padding: 0 rem(16);
 }
 
-  /****   Divider  ****/
+/****   Divider  ****/
 
 .divider {
   position: relative;
@@ -336,11 +336,17 @@ section {
 
 main {
   margin-top: rem(72);
+  width: 100%;
+  overflow-x: hidden;
 
   /****  Home  ****/
 
   #home {
     padding: rem(80) 0 rem(80) 0;
+
+    @include min($tablet) {
+      padding: rem(100) 0 rem(80) 0;
+    }
 
     .container {
       display: flex;
@@ -437,6 +443,13 @@ main {
   #sobre {
     padding: rem(80) 0 rem(80) 0;
 
+    @include min($tablet) {
+      padding: rem(120) 0 rem(120) 0;
+    }
+    @include min($desktop) {
+      padding: rem(120) 0 rem(80) 0;
+    }
+
     .container {
       display: flex;
       align-items: center;
@@ -493,14 +506,14 @@ main {
 
       @include min($desktop) {
         padding-top: 0;
-        max-width: rem(500);
+        max-width: rem(450);
       }
 
       h1 {
         margin-bottom: rem(16);
       }
       p {
-        &:not(:last-child){
+        &:not(:last-child) {
           margin-bottom: rem(24);
         }
       }
@@ -517,6 +530,124 @@ main {
 
         &:hover {
           background: var(--base-color-alt);
+        }
+      }
+    }
+  }
+
+  /****   Serviços  ****/
+
+  #servicos {
+    padding: rem(60) 0 rem(80) 0;
+
+    @include min($tablet) {
+      padding: rem(120) 0 rem(120) 0;
+    }
+    @include min($desktop) {
+      padding: rem(120) 0 rem(80) 0;
+    }
+    .text {
+      width: 100%;
+
+      @include min($mobile) {
+        text-align: center;
+      }
+
+      h1 {
+        margin-bottom: rem(16);
+      }
+
+      p {
+        max-width: rem(500);
+
+        @include min($mobile) {
+          margin: 0 auto;
+          text-align: center;
+        }
+
+        .base-color {
+          color: var(--base-color);
+        }
+      }
+    }
+    .cards {
+      margin-top: rem(32);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+
+      @include min($mobile) {
+        justify-content: space-evenly;
+        flex-direction: row;
+        flex-wrap: wrap;
+      }
+
+      .card {
+        width: 100%;
+        max-width: 95%;
+        padding: rem(58) rem(32);
+        background-color: white;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        border-radius: rem(6);
+        border-bottom: 5px solid var(--base-color);
+        transition: 0.5s;
+        margin-top: rem(24);
+
+        @include min($mobile) {
+          min-width: 450px;
+          max-width: 80%;
+        }
+
+        @include min($tablet) {
+          min-width: 300px;
+          max-width: 48%;
+        }
+
+        @include min($desktop) {
+          min-width: 300px;
+          max-width: 31%;
+        }
+
+        &:hover {
+          transform: scale(1.05);
+          box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+          border-bottom: 5px solid var(--base-color-alt);
+
+          h3 {
+            color: var(--base-color-alt);
+            &::after {
+              width: 100%;
+            }
+          }
+        }
+        img {
+          max-width: rem(80);
+        }
+
+        h3 {
+          position: relative;
+          display: inline-block;
+          color: var(--title-color);
+          font: 700 rem(24) "Poppins", sans-serif;
+          line-height: rem(36);
+          margin-top: rem(24);
+          padding-bottom: rem(6);
+          margin-bottom: rem(12);
+
+          transition: all 0.5s;
+
+          &::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 0%;
+            height: rem(2);
+            background: var(--base-color-alt);
+            transition: width 0.2s;
+          }
         }
       }
     }
