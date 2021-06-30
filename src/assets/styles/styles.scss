@@ -1,10 +1,10 @@
-@mixin min($value){
-  @media screen and (min-width: $value){
+@mixin min($value) {
+  @media screen and (min-width: $value) {
     @content;
   }
 }
 
-@function rem($value){
+@function rem($value) {
   @return $value / 16 * 1rem;
 }
 
@@ -19,7 +19,7 @@ a {
   cursor: pointer;
 }
 
-ul{
+ul {
   list-style: none;
 }
 
@@ -39,12 +39,19 @@ img {
   --text-color: hsl(0 0% 46%);
   --text-color-light: hsl(0 0% 98%);
   --body-color: hsl(0 0% 98%);
-
 }
+
+$mobile: 568px;
+$tablet: 768px;
+$desktop: 980px;
 
 body {
   font: 400 rem(16) "DM Sans", sans-serif;
   color: var(--text-color);
+
+  &.toogle-menu{
+    
+  }
 }
 
 h1 {
@@ -65,4 +72,165 @@ h1 {
   max-width: rem(980);
   margin: 0 auto;
   padding: 0 rem(24);
+}
+
+/**************************************
+                HEADER
+***************************************/
+
+#header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: rem(72);
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+
+  nav.container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .logo {
+      font: 700 rem(21) "Poppins", sans-serif;
+      color: var(--title-color);
+      span {
+        color: var(--base-color);
+      }
+    }
+
+    .toggle {
+      cursor: pointer;
+      transition: all 0.3s;
+      max-width: 24px;
+
+      z-index: 100;
+
+      @include min($tablet) {
+        display: none;
+      }
+
+      .one,
+      .two,
+      .three {
+        background: var(--base-color);
+        padding: 1px 10px;
+        border-radius: 20px;
+        margin: 4px 0;
+        transition: all 0.3s;
+      }
+
+      &.on .one {
+        transform: rotate(45deg) translate(4px, 5px);
+        transition: all 0.3s;
+      }
+  
+      &.on .two {
+        opacity: 0;
+        transition: all 0.3s;
+      }
+  
+      &.on .three {
+        transform: rotate(-45deg) translate(4px, -5px);
+        transition: all 0.3s;
+      }
+    }
+
+    .menu {
+      visibility: hidden;
+      opacity: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      position: fixed;
+      top: 0;
+      left: 0;
+
+      width: 100%;
+      height: 100%;
+
+      background: var(--body-color);
+
+      transform: translateX(100%);
+
+      transition: .3s;
+
+      &.resize{
+        transition: none
+      }
+      
+      @include min($tablet) {
+        display: flex;
+        position: relative;
+        visibility: visible;
+        opacity: 1;
+        width: auto;
+        background: white;
+        transform: translateX(0%);
+      }
+
+      &.show {
+        visibility: visible;
+        opacity: 1;
+        transform: translateX(0%);
+      }
+
+      ul.nav-list {
+        text-align: center;
+
+        @include min($tablet) {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        li.nav-item {
+          margin: rem(24) 0;
+          @include min($tablet) {
+            margin: 0;
+          }
+
+          &:not(:last-child){
+            @include min($tablet) {
+              margin-right: rem(32);
+            }
+          }
+          a.nav-link {
+            color: var(--title-color);
+            font: 700 rem(30) "Poppins", sans-serif;
+            padding: rem(12) 0;
+
+            position: relative;
+            transition: color 0.2s;
+
+            @include min($tablet) {
+              font: 400 rem(16) "DM Sans", sans-serif;
+            }
+
+            &::after {
+              content: "";
+              position: absolute;
+              left: 0;
+              bottom: 0;
+              width: 0%;
+              height: rem(2);
+              background: var(--base-color);
+              transition: width 0.2s;
+            }
+
+            &:hover {
+              color: var(--base-color);
+
+              &::after {
+                width: 100%;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }
