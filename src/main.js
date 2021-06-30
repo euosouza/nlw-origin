@@ -20,6 +20,17 @@ window.addEventListener('resize', () => {
 
 // Adicionando sombra no header
 window.addEventListener('scroll', () => {
-  window.pageYOffset > header.offsetHeight ? 
-  header.classList.add('shadow') : header.classList.remove('shadow');
+  window.pageYOffset > header.offsetHeight ?
+    header.classList.add('shadow') : header.classList.remove('shadow');
 })
+
+const linksMenu = document.querySelectorAll('.nav-link');
+
+
+linksMenu.forEach(element => {
+  element.addEventListener('click', () => {
+    toggle.classList.remove('on');
+    menu.classList.remove('show');
+  })
+});
+

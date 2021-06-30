@@ -1,3 +1,9 @@
+/************************************** 
+         MIXIN AND FUNCTIONS
+***************************************/
+/**************************************
+                RESET
+***************************************/
 * {
   margin: 0;
   padding: 0;
@@ -82,10 +88,19 @@ section {
   padding: 0 1rem;
 }
 
+/****   Divider  ****/
 .divider {
   position: relative;
   height: 0.125rem;
-  width: 100%;
+  margin: 0 auto;
+  max-width: 87.5rem;
+  overflow-x: hidden;
+}
+
+@media screen and (min-width: 1400px) {
+  .divider {
+    max-width: 68.75rem;
+  }
 }
 
 .divider::after {
@@ -97,7 +112,7 @@ section {
   height: 100%;
   background: -webkit-gradient(linear, right top, left top, from(hsla(var(--hue), 36%, 57%, 1)), to(hsla(var(--hue), 65%, 88%, 0.34)));
   background: linear-gradient(270deg, hsla(var(--hue), 36%, 57%, 1) 0%, hsla(var(--hue), 65%, 88%, 0.34) 100%);
-  opacity: .4;
+  opacity: 0.4;
   -webkit-animation: divider 2s infinite;
           animation: divider 2s infinite;
 }
@@ -108,8 +123,8 @@ section {
 }
 
 .divider.left {
-  background: -webkit-gradient(linear, right top, left top, from(hsla(var(--hue), 65%, 88%, 0.34)), to(hsla(var(--hue), 36%, 57%, 1)));
-  background: linear-gradient(270deg, hsla(var(--hue), 65%, 88%, 0.34) 0%, hsla(var(--hue), 36%, 57%, 1) 100%);
+  background: -webkit-gradient(linear, right top, left top, from(hsla(var(--hue), 65%, 88%, 0.34)), color-stop(100%, hsla(var(--hue), 36%, 57%, 1)), color-stop(0%, hsla(var(--hue), 65%, 88%, 0.34)));
+  background: linear-gradient(270deg, hsla(var(--hue), 65%, 88%, 0.34) 0%, hsla(var(--hue), 36%, 57%, 1) 100%, hsla(var(--hue), 65%, 88%, 0.34) 0%);
 }
 
 @-webkit-keyframes divider {
@@ -173,6 +188,8 @@ section {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  /****   MENU TOGGLE  ****/
+  /****   MENU   ****/
 }
 
 #header nav.container .logo {
@@ -365,8 +382,13 @@ section {
   width: 100%;
 }
 
+/**************************************
+                MAIN
+***************************************/
 main {
   margin-top: 4.5rem;
+  /****  Home  ****/
+  /****   Sobre  ****/
 }
 
 main #home {
@@ -498,6 +520,121 @@ main #home .text a {
 }
 
 main #home .text a:hover {
+  background: var(--base-color-alt);
+}
+
+main #sobre {
+  padding: 5rem 0 5rem 0;
+}
+
+main #sobre .container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+@media screen and (min-width: 980px) {
+  main #sobre .container {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+}
+
+main #sobre .image {
+  position: relative;
+  max-width: 35.5rem;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+main #sobre .image::after {
+  content: "";
+  position: absolute;
+  top: -13%;
+  right: 10%;
+  width: 100%;
+  height: 100%;
+  background: var(--base-color-alt);
+  opacity: 0.3;
+  border-radius: 0.25rem;
+  z-index: -1;
+}
+
+@media screen and (min-width: 980px) {
+  main #sobre .image::after {
+    right: 30%;
+  }
+}
+
+main #sobre .image img {
+  position: relative;
+  width: 110%;
+  right: 0%;
+  left: 0%;
+}
+
+@media screen and (min-width: 980px) {
+  main #sobre .image img {
+    width: 100%;
+    left: -20%;
+    margin-left: 1.5625rem;
+  }
+}
+
+main #sobre .text {
+  padding-top: 2rem;
+  max-width: 43.75rem;
+}
+
+@media screen and (min-width: 980px) {
+  main #sobre .text {
+    padding-top: 0;
+    max-width: 31.25rem;
+  }
+}
+
+main #sobre .text h1 {
+  margin-bottom: 1rem;
+}
+
+main #sobre .text p:not(:last-child) {
+  margin-bottom: 1.5rem;
+}
+
+main #sobre .text a {
+  height: 3.125rem;
+  background: var(--base-color);
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: white;
+  padding: 0 1.5rem;
+  border-radius: 0.25rem;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+main #sobre .text a:hover {
   background: var(--base-color-alt);
 }
 /*# sourceMappingURL=styles.css.map */

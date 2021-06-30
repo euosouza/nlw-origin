@@ -1,3 +1,7 @@
+/************************************** 
+         MIXIN AND FUNCTIONS
+***************************************/
+
 @mixin min($value) {
   @media screen and (min-width: $value) {
     @content;
@@ -7,6 +11,10 @@
 @function rem($value) {
   @return $value / 16 * 1rem;
 }
+
+/**************************************
+                RESET
+***************************************/
 
 * {
   margin: 0;
@@ -89,10 +97,18 @@ section {
   padding: 0 rem(16);
 }
 
+  /****   Divider  ****/
+
 .divider {
   position: relative;
   height: rem(2);
-  width: 100%; 
+  margin: 0 auto;
+  max-width: rem(1400);
+  overflow-x: hidden;
+
+  @include min(1400px) {
+    max-width: rem(1100);
+  }
 
   &::after {
     content: "";
@@ -102,17 +118,21 @@ section {
     width: 20%;
     height: 100%;
     background: linear-gradient(270deg, hsla(var(--hue), 36%, 57%, 1) 0%, hsla(var(--hue), 65%, 88%, 0.34) 100%);
-    opacity: .4;
+    opacity: 0.4;
     animation: divider 2s infinite;
   }
 
-  &.right{
+  &.right {
     background: linear-gradient(270deg, hsla(var(--hue), 36%, 57%, 1) 0%, hsla(var(--hue), 65%, 88%, 0.34) 100%);
   }
-  &.left{
-    background: linear-gradient(270deg, hsla(var(--hue), 65%, 88%, 0.34) 0%, hsla(var(--hue), 36%, 57%, 1) 100% );
+  &.left {
+    background: linear-gradient(
+      270deg,
+      hsla(var(--hue), 65%, 88%, 0.34) 0%,
+      hsla(var(--hue), 36%, 57%, 1) 100%,
+      hsla(var(--hue), 65%, 88%, 0.34) 0%
+    );
   }
-  
 }
 
 @keyframes divider {
@@ -171,6 +191,8 @@ section {
       }
     }
 
+    /****   MENU TOGGLE  ****/
+
     .toggle {
       cursor: pointer;
       transition: all 0.3s;
@@ -207,6 +229,8 @@ section {
         transition: all 0.3s;
       }
     }
+
+    /****   MENU   ****/
 
     .menu {
       visibility: hidden;
@@ -306,8 +330,14 @@ section {
   }
 }
 
+/**************************************
+                MAIN
+***************************************/
+
 main {
   margin-top: rem(72);
+
+  /****  Home  ****/
 
   #home {
     padding: rem(80) 0 rem(80) 0;
@@ -383,6 +413,96 @@ main {
       }
       p {
         margin-bottom: rem(32);
+      }
+      a {
+        height: rem(50);
+        background: var(--base-color);
+        display: inline-flex;
+        align-items: center;
+        color: white;
+        padding: 0 rem(24);
+        border-radius: rem(4);
+
+        transition: 0.4s;
+
+        &:hover {
+          background: var(--base-color-alt);
+        }
+      }
+    }
+  }
+
+  /****   Sobre  ****/
+
+  #sobre {
+    padding: rem(80) 0 rem(80) 0;
+
+    .container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+
+      @include min($desktop) {
+        flex-direction: row;
+      }
+    }
+
+    .image {
+      position: relative;
+      max-width: rem(568);
+      margin: 0 auto;
+
+      display: flex;
+      justify-content: center;
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: -13%;
+        right: 10%;
+        width: 100%;
+        height: 100%;
+        background: var(--base-color-alt);
+        opacity: 0.3;
+        border-radius: rem(4);
+        z-index: -1;
+
+        @include min($desktop) {
+          right: 30%;
+        }
+      }
+
+      img {
+        position: relative;
+        width: 110%;
+        right: 0%;
+        left: 0%;
+
+        @include min($desktop) {
+          width: 100%;
+          left: -20%;
+          margin-left: rem(25);
+        }
+      }
+    }
+
+    .text {
+      padding-top: rem(32);
+      max-width: rem(700);
+
+      @include min($desktop) {
+        padding-top: 0;
+        max-width: rem(500);
+      }
+
+      h1 {
+        margin-bottom: rem(16);
+      }
+      p {
+        &:not(:last-child){
+          margin-bottom: rem(24);
+        }
       }
       a {
         height: rem(50);
