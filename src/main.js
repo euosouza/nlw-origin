@@ -8,12 +8,11 @@ toggle.addEventListener('click', () => {
 
 // Ajustando bug do menu quando á redimensionamento manual da tela
 window.addEventListener('resize', () => {
-  if (window.innerWidth === 767) {
-    toggle.classList.remove('on');
-    menu.classList.remove('show');
-    menu.classList.add('resize')
-  }
-  else {
-    menu.classList.remove('resize')
-  }
+  menu.classList.add('resize');
+  toggle.classList.remove('on');
+  menu.classList.remove('show');
+
+  setTimeout(() =>{
+    menu.classList.remove('resize');
+  },10)  
 })

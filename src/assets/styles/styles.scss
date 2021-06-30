@@ -49,8 +49,7 @@ body {
   font: 400 rem(16) "DM Sans", sans-serif;
   color: var(--text-color);
 
-  &.toogle-menu{
-    
+  &.toogle-menu {
   }
 }
 
@@ -126,12 +125,12 @@ h1 {
         transform: rotate(45deg) translate(4px, 5px);
         transition: all 0.3s;
       }
-  
+
       &.on .two {
         opacity: 0;
         transition: all 0.3s;
       }
-  
+
       &.on .three {
         transform: rotate(-45deg) translate(4px, -5px);
         transition: all 0.3s;
@@ -155,13 +154,12 @@ h1 {
       background: var(--body-color);
 
       transform: translateX(100%);
+      transition: all 0.2s;
 
-      transition: .3s;
-
-      &.resize{
-        transition: none
+      &.resize {
+        transition: none;
       }
-      
+
       @include min($tablet) {
         display: flex;
         position: relative;
@@ -193,7 +191,7 @@ h1 {
             margin: 0;
           }
 
-          &:not(:last-child){
+          &:not(:last-child) {
             @include min($tablet) {
               margin-right: rem(32);
             }

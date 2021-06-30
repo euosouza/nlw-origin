@@ -160,8 +160,8 @@ h1 {
   background: var(--body-color);
   -webkit-transform: translateX(100%);
           transform: translateX(100%);
-  -webkit-transition: .3s;
-  transition: .3s;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
 }
 
 #header nav.container .menu.resize {
