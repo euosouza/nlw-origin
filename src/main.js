@@ -24,24 +24,25 @@ window.addEventListener('scroll', () => {
     header.classList.add('shadow') : header.classList.remove('shadow');
 })
 
-const linksMenu = document.querySelectorAll('a.nav-link[href^="#"');
+const linksMenu = document.querySelectorAll('.nav-link');
 
 linksMenu.forEach(link => {
   link.addEventListener('click', (event) => {
     event.preventDefault();
     toggle.classList.remove('on');
-    menu.classList.remove('show');
+    menu.classList.remove('show');  
+  })
+});
 
+const linksAncora = document.querySelectorAll('a[href^="#"');
+
+linksAncora.forEach(link => {
+  link.addEventListener('click', (event) => {
+    event.preventDefault();
     const headerHeight = header.offsetHeight;
 
     const to = getScrollTopByHref(event.target) - headerHeight;    
     scrollToPosition(to)
-  })
-});
-
-linksMenu.forEach(link => {
-  link.addEventListener('click', (event) => {
-    
     
   })
 });
