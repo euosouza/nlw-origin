@@ -789,18 +789,19 @@ main #servicos .cards .card:hover h3::after {
 }
 
 main #servicos .cards .card img {
+  margin: 0 auto;
   max-width: 5rem;
+  display: block;
+  margin-bottom: 0.75rem;
 }
 
 main #servicos .cards .card h3 {
   position: relative;
-  display: inline-block;
+  display: inline;
   color: var(--title-color);
   font: 700 1.5rem "Poppins", sans-serif;
   line-height: 2.25rem;
-  margin-top: 1.5rem;
   padding-bottom: 0.375rem;
-  margin-bottom: 0.75rem;
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
 }
@@ -815,5 +816,9 @@ main #servicos .cards .card h3::after {
   background: var(--base-color-alt);
   -webkit-transition: width 0.2s;
   transition: width 0.2s;
+}
+
+main #servicos .cards .card p {
+  margin-top: 0.75rem;
 }
 /*# sourceMappingURL=styles.css.map */

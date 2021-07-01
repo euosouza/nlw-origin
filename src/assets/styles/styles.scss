@@ -623,18 +623,21 @@ main {
           }
         }
         img {
+          margin: 0 auto;
           max-width: rem(80);
+          display: block;
+          margin-bottom: rem(12);
         }
 
         h3 {
           position: relative;
-          display: inline-block;
+          display: inline;
           color: var(--title-color);
           font: 700 rem(24) "Poppins", sans-serif;
           line-height: rem(36);
-          margin-top: rem(24);
+          
           padding-bottom: rem(6);
-          margin-bottom: rem(12);
+          
 
           transition: all 0.5s;
 
@@ -648,6 +651,9 @@ main {
             background: var(--base-color-alt);
             transition: width 0.2s;
           }
+        }
+        p{
+          margin-top: rem(12);
         }
       }
     }
