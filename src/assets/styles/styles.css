@@ -393,6 +393,7 @@ main {
   /****  Home  ****/
   /****   Sobre  ****/
   /****   Serviços  ****/
+  /****   Contato  ****/
 }
 
 main #home {
@@ -821,6 +822,139 @@ main #servicos .cards .card h3::after {
 
 main #servicos .cards .card p {
   margin-top: 0.75rem;
+}
+
+main #contato {
+  padding: 3.75rem 0 3.75rem 0;
+}
+
+@media screen and (min-width: 568px) {
+  main #contato {
+    padding: 5rem 0 5rem 0;
+  }
+}
+
+main #contato .container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+@media screen and (min-width: 768px) {
+  main #contato .container {
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  main #contato .container .text {
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    max-width: 400px;
+  }
+}
+
+main #contato .container .text h1 {
+  margin-bottom: 1rem;
+}
+
+main #contato .container .text p {
+  margin-bottom: 2rem;
+}
+
+main #contato .container .text a {
+  height: 3.125rem;
+  background: var(--base-color);
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: white;
+  padding: 0 1.5rem;
+  border-radius: 0.25rem;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+main #contato .container .text a:hover {
+  background: var(--base-color-alt);
+}
+
+main #contato .container .text a img {
+  max-width: 1.5rem;
+  margin-right: 0.625rem;
+}
+
+main #contato .container .informations {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  margin-top: 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+@media screen and (min-width: 768px) {
+  main #contato .container .informations {
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    margin: 0;
+    -webkit-box-align: end;
+        -ms-flex-align: end;
+            align-items: flex-end;
+  }
+}
+
+main #contato .container .informations ul li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+main #contato .container .informations ul li:not(:last-child) {
+  margin-bottom: 0.75rem;
+}
+
+main #contato .container .informations ul li:hover {
+  color: var(--title-color);
+}
+
+main #contato .container .informations ul li img {
+  max-width: 24px;
+  margin-right: 0.625rem;
 }
 
 footer {

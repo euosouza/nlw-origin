@@ -659,6 +659,93 @@ main {
       }
     }
   }
+
+  /****   Contato  ****/
+
+  #contato{
+    padding: rem(60) 0 rem(60) 0;
+
+  @include min($mobile) {
+    padding: rem(80) 0 rem(80) 0;
+  }
+    .container{
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      flex-direction: column;
+
+      @include min($tablet) {
+        align-items: center;
+        justify-content: space-between;
+        flex-direction: row;
+      }
+      .text{
+        @include min($tablet) {
+          flex: 1;
+         max-width: 400px;
+        }
+        h1 {
+          margin-bottom: rem(16);
+        }
+        p {
+          margin-bottom: rem(32);
+        }
+        a {
+          height: rem(50);
+          background: var(--base-color);
+          display: inline-flex;
+          align-items: center;
+          color: white;
+          padding: 0 rem(24);
+          border-radius: rem(4);
+  
+          transition: 0.4s;
+  
+          &:hover {
+            background: var(--base-color-alt);
+          }
+
+          img{
+            max-width:rem(24);
+            margin-right: rem(10);
+          }
+        }
+
+      }
+      .informations{
+        flex: 1;
+        margin-top: rem(32);
+
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+
+        @include min($tablet) {
+          flex: 1;
+          margin: 0;
+          align-items: flex-end;
+        }
+        ul{
+          li{
+            display: flex;
+            align-items: center;
+            &:not(:last-child){
+              margin-bottom: rem(12);
+            }
+            &:hover{
+              color: var(--title-color);
+            }
+            img{
+              max-width: 24px;
+              margin-right: rem(10);                
+            }
+          }
+        }
+
+      }
+
+    }
+  }
 }
 
 footer{
