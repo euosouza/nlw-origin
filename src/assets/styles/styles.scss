@@ -541,10 +541,7 @@ main {
     padding: rem(60) 0 rem(80) 0;
 
     @include min($tablet) {
-      padding: rem(120) 0 rem(120) 0;
-    }
-    @include min($desktop) {
-      padding: rem(120) 0 rem(80) 0;
+      padding: rem(90) 0 rem(90) 0;
     }
     .text {
       width: 100%;
@@ -596,7 +593,7 @@ main {
         margin-top: rem(24);
 
         @include min($mobile) {
-          min-width: 450px;          
+          min-width: 450px;
           max-width: 80%;
         }
 
@@ -636,9 +633,8 @@ main {
           color: var(--title-color);
           font: 700 rem(24) "Poppins", sans-serif;
           line-height: rem(36);
-          
+
           padding-bottom: rem(6);
-          
 
           transition: all 0.5s;
 
@@ -653,8 +649,132 @@ main {
             transition: width 0.2s;
           }
         }
-        p{
+        p {
           margin-top: rem(12);
+        }
+      }
+    }
+  }
+  /****   Depoimentos  ****/
+
+  #depoimentos {
+    padding: rem(60) 0 rem(80) 0;
+
+    @include min($tablet) {
+      padding: rem(90) 0 rem(120) 0;
+    }
+
+    .text {
+      margin-bottom: rem(48);
+
+      h1{
+        max-width: rem(450);
+        text-align: center;        
+
+        @include min($mobile){
+          margin: 0 auto;
+        }
+
+        span{
+          color: var(--base-color);
+        }
+      }
+    }
+
+    #carousel {
+      position: relative;
+      width: 100%;
+
+      .controls {
+        width: 100%;
+        position: absolute;
+        bottom: -15%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .control {
+          width: rem(10);
+          height: rem(10);
+          border-radius: 50%;
+
+          background: var(--base-color);
+          opacity: .3;
+          transition: .3s;
+          margin: rem(6);
+          cursor: pointer;
+
+          &.active{
+            background: var(--base-color);
+            opacity: 1;
+          }
+
+          &:hover{
+            background: var(--base-color);
+            opacity: 1;
+          }
+
+          &:last-child{
+            @include min($tablet){
+              cursor:  none;
+            }
+          }
+        }
+      }
+      #carousel-wrapper {
+        overflow-x: hidden;
+        padding:rem(5);
+
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+
+        .slider {
+          min-width: 100%;
+          transition: margin .5s;
+
+          @include min(360px) {
+            min-width: 100%;
+          }
+
+          @include min($tablet) {
+            min-width: 48.5%;
+            max-width: 48.5%;
+          }
+
+          @include min($desktop) {
+            min-width: 49%;
+            max-width: 49%;
+          }
+
+          &:not(:last-child){
+            margin-right: rem(20);
+          }
+          
+          .card {
+            background: white;
+            box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
+            padding: rem(32);
+            border-radius: rem(4);
+            width: 100%;
+
+            @include min($mobile) {
+              padding: rem(52);
+            }
+
+            p {
+            }
+            .info {
+              display: flex;
+              align-items: center;
+              margin-top: rem(24);
+              img {
+                max-width: 48px;
+                margin-right: rem(16);
+              }
+              p {
+              }
+            }
+          }
         }
       }
     }
@@ -662,13 +782,13 @@ main {
 
   /****   Contato  ****/
 
-  #contato{
+  #contato {
     padding: rem(60) 0 rem(60) 0;
 
-  @include min($mobile) {
-    padding: rem(80) 0 rem(80) 0;
-  }
-    .container{
+    @include min($mobile) {
+      padding: rem(80) 0 rem(80) 0;
+    }
+    .container {
       display: flex;
       align-items: flex-start;
       justify-content: center;
@@ -679,10 +799,10 @@ main {
         justify-content: space-between;
         flex-direction: row;
       }
-      .text{
+      .text {
         @include min($tablet) {
           flex: 1;
-         max-width: 400px;
+          max-width: 400px;
         }
         h1 {
           margin-bottom: rem(16);
@@ -698,21 +818,20 @@ main {
           color: white;
           padding: 0 rem(24);
           border-radius: rem(4);
-  
+
           transition: 0.4s;
-  
+
           &:hover {
             background: var(--base-color-alt);
           }
 
-          img{
-            max-width:rem(24);
+          img {
+            max-width: rem(24);
             margin-right: rem(10);
           }
         }
-
       }
-      .informations{
+      .informations {
         flex: 1;
         margin-top: rem(32);
 
@@ -725,37 +844,35 @@ main {
           margin: 0;
           align-items: flex-end;
         }
-        ul{
-          li{
+        ul {
+          li {
             display: flex;
             align-items: center;
-            &:not(:last-child){
+            &:not(:last-child) {
               margin-bottom: rem(12);
             }
-            &:hover{
+            &:hover {
               color: var(--title-color);
             }
-            img{
+            img {
               max-width: 24px;
-              margin-right: rem(10);                
+              margin-right: rem(10);
             }
           }
         }
-
       }
-
     }
   }
 }
 
-footer{
+footer {
   background: var(--base-color);
   padding: rem(60) 0 rem(60) 0;
 
   @include min($mobile) {
     padding: rem(80) 0 rem(80) 0;
   }
-  .container{
+  .container {
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
@@ -767,64 +884,60 @@ footer{
       flex-direction: row;
     }
 
-    .copyright{
+    .copyright {
       flex: 1;
       margin-bottom: rem(24);
       @include min($mobile) {
         margin: 0;
       }
-      
-    .logo {
-      font: 700 rem(24) "Poppins", sans-serif;
-      color: var(--title-color);      
-      transition:  0.5s;
 
-      &:hover {
-        transform: scale(1.04);
+      .logo {
+        font: 700 rem(24) "Poppins", sans-serif;
+        color: var(--title-color);
+        transition: 0.5s;
+
+        &:hover {
+          transform: scale(1.04);
+        }
+
+        span {
+          color: white;
+        }
       }
+      p {
+        color: white;
 
-      span {
-        color:white;
+        &:nth-child(2) {
+          margin-top: rem(24);
+          margin-bottom: rem(3);
+        }
       }
     }
-    p {
-      color: white;
 
-      &:nth-child(2){
-        margin-top: rem(24);
-        margin-bottom: rem(3);
-      }
-    }
-
-    }
-
-    .redes-sociais{
+    .redes-sociais {
       flex: 1;
       display: flex;
       align-items: center;
       justify-content: flex-start;
 
-      
-    @include min($mobile) {
-      justify-content: flex-end;
-    }
-
-    a{
-      width: auto;
-      &:not(:last-child){
-        margin-right: rem(12);
+      @include min($mobile) {
+        justify-content: flex-end;
       }
-      &:hover{
-        img{
-          transform: translateY(-10%);
+
+      a {
+        width: auto;
+        &:not(:last-child) {
+          margin-right: rem(12);
+        }
+        &:hover {
+          img {
+            transform: translateY(-10%);
+          }
+        }
+        img {
+          transition: all 0.3s;
         }
       }
-      img{        
-        transition: all .3s;        
-      }
-    }
-
-      
     }
   }
 }

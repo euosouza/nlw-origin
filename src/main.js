@@ -30,7 +30,7 @@ linksMenu.forEach(link => {
   link.addEventListener('click', (event) => {
     event.preventDefault();
     toggle.classList.remove('on');
-    menu.classList.remove('show');  
+    menu.classList.remove('show');
   })
 });
 
@@ -41,18 +41,18 @@ linksAncora.forEach(link => {
     event.preventDefault();
     const headerHeight = header.offsetHeight;
 
-    const to = getScrollTopByHref(event.target) - headerHeight;    
+    const to = getScrollTopByHref(event.target) - headerHeight;
     scrollToPosition(to)
-    
+
   })
 });
 
-function getScrollTopByHref(element){
+function getScrollTopByHref(element) {
   const id = element.getAttribute('href');
   return document.querySelector(id).offsetTop;
 }
 
-function scrollToPosition(to){
+function scrollToPosition(to) {
   // Comportamento padrao do browser
   // window.scroll({
   //   top: to,
@@ -68,7 +68,7 @@ function scrollToPosition(to){
  * @param {int} endY: destination y coordinate
  * @param {int} duration: animation duration in ms
  */
- function smoothScrollTo(endX, endY, duration) {
+function smoothScrollTo(endX, endY, duration) {
   const startX = window.scrollX || window.pageXOffset;
   const startY = window.scrollY || window.pageYOffset;
   const distanceX = endX - startX;
@@ -94,6 +94,61 @@ function scrollToPosition(to){
   }, 1000 / 60); // 60 fps
 };
 
+
+// Carousel
+
+const controls = document.querySelector("#controls"); //balls
+const sliders = document.querySelectorAll(".slider"); // quant
+let atual = 0;
+const slider = document.querySelector("#atual"); // image
+
+let id = 0;
+sliders.forEach(element => {
+  const div = document.createElement('div');
+  div.setAttribute("id", id++);
+  div.classList.add('control');
+  controls.appendChild(div);
+});
+
+document.getElementById("0").classList.add('active');
+
+const elementControl = document.querySelectorAll(".control"); //pos
+
+elementControl.forEach(element => {
+  element.addEventListener('click', (event) => {
+    atual = element.id
+    moveSlide()
+  })
+});
+
+window.addEventListener('resize', () => {
+  setTimeout(() => {    
+    if (window.innerWidth > 767) {
+      atual = sliders.length - 1;
+    }
+    moveSlide();
+  }, 500)
+
+})
+
+function getSliderWidth() {
+  
+  return (- document.querySelector("#atual").offsetWidth - 21) * atual
+}
+
+function moveSlide() {
+  if (atual >= sliders.length) {
+    atual = 0;
+  } else if (atual < 0) {
+    atual = sliders.length - 1;
+  }
+
+  document.querySelector(".control.active").classList.remove('active');
+  slider.style.marginLeft = getSliderWidth() + 'px';
+  document.getElementById(atual).classList.add('active');
+}
+
+moveSlide();
 
 
 
